@@ -72,19 +72,18 @@ function get_pagination($total_rows, $target, $current_page, $rows_per_page = 10
 // ------------------------------------------------------------------------
 
 /**
-  * Genarate numeric selectbox
+  * Calculate new size with original ratio
   *
   * @access		public
   *
-  * @param		int		$start
-  * @param		int		$end
-  * @param		int		$selected
-  * @param		array	$attribute
+  * @param		string	$image_uri
+  * @param		int		$max_width
+  * @param		int		$max_height
   *
-  * @return		mixed	$_previewer
+  * @return		array	$_new_size
   */
   
-function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_height = 300)
+function calc_image_size($image_uri, $max_width = 300, $max_height = 300)
 {		
 	// Get original size
 	$_img_info	 = getimagesize($image_uri);
@@ -109,6 +108,60 @@ function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_heigh
 		$_new_width  = floor($_new_height * $_img_width / $_img_height);
 	} 
 	
+	$_new_size['width'] = $_new_width;
+	$_new_size['height'] = $_new_height;
+	
+	return $_new_size;
+}
+
+// ------------------------------------------------------------------------
+
+/**
+  * Genarate image tag with preview size
+  *
+  * @access		public
+  *
+  * @param		string	$image_uri
+  * @param		int		$max_width
+  * @param		int		$max_height
+  *
+  * @return		mixed	$_previewer
+  */
+  
+function get_image_preview($image_uri, $max_width = 300, $max_height = 300)
+{		
+	$_new_size	 = calc_image_size($image_uri, $max_width, $max_height);
+	$_new_width = $_new_size['width'];
+	$_new_height = $_new_size['height'];
+	
+	$_description = 'Click to view enlarge image';
+	
+	$_previewer = '<a href="'.$image_uri.'" target="_blank"><img src="'.$image_uri.'" width="'.$_new_width.'" height="'.$_new_height.'" alt="'.$_description.'" title="'.$_description.'"></a>';
+	
+	return $_previewer;
+}
+
+// ------------------------------------------------------------------------
+
+/**
+  * Genarate image tag with preview size for CRUD 
+  *
+  * @access		public
+  *
+  * @param		string	$image_uri
+  * @param		string	$label
+  * @param		int		$max_width
+  * @param		int		$max_height
+  *
+  * @return		mixed	$_previewer
+  */
+  
+function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_height = 300)
+{
+	$_new_size	 = calc_image_size($image_uri, $max_width, $max_height);
+	$_new_width = $_new_size['width'];
+	$_new_height = $_new_size['height'];
+	
 	$_description = 'Click to view enlarge image';
 	
 	$_previewer = '<label><a href="'.$image_uri.'" target="_blank"><img src="'.$image_uri.'" width="'.$_new_width.'" height="'.$_new_height.'" alt="'.$_description.'" title="'.$_description.'"></a></label>';
@@ -130,20 +183,21 @@ function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_heigh
   * @param		int		$selected
   * @param		array	$attribute
   *
-  * @return		mixed	$_select_box
+  * @return		mixed	$_selectbox
   */
   
 function get_numeric_selectbox($start, $end, $selected, $attribute)
 {		
 	// Generate attribute
 	$_attr = '';
+	
 	foreach($attribute as $key => $value)
 	{
 		$_attr .= ' ' . $key . ' = "' . $value . '"';
 	}
 	
 	// Generate selectbox
-	$_select_box = '<select' . $_attr . '>';
+	$_selectbox = '<select' . $_attr . '>';
 
 	for($_loop = $start; $_loop <= $end; $_loop++)
 	{
@@ -151,12 +205,12 @@ function get_numeric_selectbox($start, $end, $selected, $attribute)
 		$_selected = ($selected == $_loop) ? 'selected = "selected"' : '';
 		
 		// Generate option value
-		$_select_box .= '<option value="' . $_loop . '" ' . $_selected . '>' . $_loop . '</option>';
+		$_selectbox .= '<option value="' . $_loop . '" ' . $_selected . '>' . $_loop . '</option>';
 	}
 	
-	$_select_box .= '</select>';
+	$_selectbox .= '</select>';
 	
-	return $_select_box;
+	return $_selectbox;
 }
 
 // ------------------------------------------------------------------------
