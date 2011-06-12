@@ -33,24 +33,21 @@
 .w120	{ width: 120px }
 .w150	{ width: 150px }
 
-#center_box
-{
+.center_box
+{ 
 	position:absolute;
-	top:50%;
-	width:100%;
-	margin:auto;
+	top:25%;
+    right:25%;
+    left:25%;
+	bottom: 25%
 }
 
-#center_box > div
+.center_box > div
 {
-	display: table;
 	margin: auto;
-	min-height: 200px;
 	min-width: 200px;
-	max-width: 960px;
+	max-width: 350px;
 	padding: 25px;
-	position: relative;
-	top: -200px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -347,7 +344,7 @@ input[type=submit]:active, button:active, a.button:active, input:active:not([typ
 
 .gadget
 {
-	background: #F3F3F3 url(../../image/bg_gadget.png) top repeat-x;
+	background: #F3F3F3 url(../img/bg_gadget.png) top repeat-x;
 	border: 1px solid #CCC;
 	padding: 2px;
 	

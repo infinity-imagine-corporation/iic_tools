@@ -222,7 +222,6 @@ function iic_query($sql)
 	if(! $_query)
 	{
 		// report
-		$url_target = '';
 		$title = 'Error in: iic_query()';
 		$message = '<h5>MySql Error: ' . mysql_errno() . '</h5>';
 		$message .= '<p class="red">' . mysql_error() . '</p>';
