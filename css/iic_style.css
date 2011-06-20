@@ -113,14 +113,14 @@ thead th { background-image: url(../img/bg_th.png); }
 /* Button */
 /*----------------------------------------------------------------------------------------------------*/
 
-a[class^=button_] { color: #4F4F4F }
-a:hover[class^=button_] { color: #313131 }
+a[class^=button] { color: #4F4F4F }
+a:hover[class^=button] { color: #313131 }
 
 /*------------------------------------------------------------*/
 /* Default */
 /*------------------------------------------------------------*/
 
-input[type=submit], input[type=reset], button, a.button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, a.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background: url(../img/bg_button.png) repeat-x;
 	border: 1px solid #B8B8B8;
@@ -146,9 +146,9 @@ input[type=submit], input[type=reset], button, a.button, input:not([type="checkb
 	-webkit-box-shadow: 0px 0px 1px #999;
 }
 
-input[type=submit], input[type=reset], button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]) { height: 30px; }
+input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button { height: 30px; }
 
-input[type=submit]:hover, button:hover, a.button:hover, input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button:hover.iic_button, button.iic_button:hover, a.iic_button:hover, input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: center;
 	border-color: #71B7FF;
@@ -159,7 +159,7 @@ input[type=submit]:hover, button:hover, a.button:hover, input:hover:not([type="c
 	-webkit-box-shadow: 0px 0px 1px #99CBFF;
 }
 
-input[type=submit]:active, button:active, a.button:active, input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:active, input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: bottom;
 	border-color: #63B0FF;
