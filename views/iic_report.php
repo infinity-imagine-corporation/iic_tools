@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title ?></title>
-<link rel="stylesheet" type="text/css" href="css/iic_layout.css" />
-<link rel="stylesheet" type="text/css" href="css/iic_style.css" />
+<link rel="stylesheet" type="text/css" href="../iic_tools/css/iic_layout.css" />
+<link rel="stylesheet" type="text/css" href="../iic_tools/css/iic_style.css" />
 <style type="text/css">
 li { list-style: circle; }
 hr { border-top-style: dashed; }
@@ -22,7 +22,7 @@ hr { border-top-style: dashed; }
 			if($url_target != '')
 			{
 				$button_text = ($button_text == '') ? 'OK' : $button_text;
-				echo '<a href="' . $url_target . '" class="button">' . $button_text . '</a>';
+				echo '<a href="' . $url_target . '" class="iic_button">' . $button_text . '</a>';
 			}
 			?>
 		</div>
