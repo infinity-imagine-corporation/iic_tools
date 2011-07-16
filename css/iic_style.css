@@ -110,6 +110,24 @@ a.link_none:active 	{ text-decoration: none; border: none; }
 thead th { background-image: url(../img/bg_th.png); }
 
 /*----------------------------------------------------------------------------------------------------*/
+/* Form */
+/*----------------------------------------------------------------------------------------------------*/
+
+.search_left 
+{
+	background: url(../img/icon_seacrh_left.png) left no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 3px 3px 20px;
+}
+
+.search_right
+{
+	background: url(../img/icon_seacrh_right.png) right no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 20px 3px 3px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
 /* Button */
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -171,8 +189,6 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	-moz-box-shadow: 0px 0px 1px #89C3FF;
 	-webkit-box-shadow: 0px 0px 1px #89C3FF;
 }
-
-
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Pagination */
