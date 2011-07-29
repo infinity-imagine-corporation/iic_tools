@@ -1,7 +1,13 @@
 <?php 
-
 // ------------------------------------------------------------------------
 
+/**
+  * Display array key => value
+  *
+  * @access		public
+  * @param		array	$arr
+  */
+  
 function print_array($arr)
 {
 	echo '<pre>';
@@ -10,6 +16,14 @@ function print_array($arr)
 }
 
 // ------------------------------------------------------------------------
+
+/**
+  * Convert multiple stirng seperate value with comma (not CSV format) to array
+  *
+  * @access		public
+  * @param		stirng	$text
+  * @return		array	
+  */
   
 function comma_to_array($text)
 {
@@ -17,10 +31,38 @@ function comma_to_array($text)
 }
 
 // ------------------------------------------------------------------------
+
+/**
+  * Convert array to stirng seperate value with comma (not CSV format)
+  *
+  * @access		public
+  * @param		array	$arr
+  * @return		stirng	
+  */
   
 function array_to_comma($arr)
 {
 	return implode(',', $arr);
+}
+
+// ------------------------------------------------------------------------
+
+/**
+  * Convert array to stirng seperate value with comma (not CSV format)
+  *
+  * @access		public
+  * @param		array	$arr
+  * @return		stirng	
+  */
+  
+function zero_fill($lenght, $data)
+{
+	while($strlen($data) < $lenght)
+	{
+		$data = '0' . $data;
+	}
+	
+	return $data;
 }
 
 // ------------------------------------------------------------------------
