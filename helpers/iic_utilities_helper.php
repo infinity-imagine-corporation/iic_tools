@@ -48,16 +48,17 @@ function array_to_comma($arr)
 // ------------------------------------------------------------------------
 
 /**
-  * Convert array to stirng seperate value with comma (not CSV format)
+  * Put 0 to $data 
   *
   * @access		public
-  * @param		array	$arr
+  * @param		integer	$lenght
+  * @param		stirng	$data
   * @return		stirng	
   */
   
 function zero_fill($lenght, $data)
 {
-	while($strlen($data) < $lenght)
+	while(strlen($data) < $lenght)
 	{
 		$data = '0' . $data;
 	}
