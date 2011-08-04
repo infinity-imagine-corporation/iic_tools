@@ -88,7 +88,7 @@ function get_numeric_selectbox($start, $end, $selected, $attribute)
 	
 	foreach($attribute as $key => $value)
 	{
-		$_attr .= ' ' . $key . ' = "' . $value . '"';
+		$_attr .= ' ' . $key . '="' . $value . '"';
 	}
 	
 	// Generate selectbox
@@ -120,16 +120,36 @@ function change_date_time_format($date_time)
 }  
 
 // ------------------------------------------------------------------------
+
+/**
+  * Change date format
+  *
+  * @access		public
+  *
+  * @param		string	$date
+  * @param		string	$old_separator
+  * @param		string	$old_format		Separate date with (-), y = Year, m = mouth, d = date Example: y-m-d or d-m-y or m-d-y
+  * @param		string	$new_separator
+  * @param		string	$new_format		Separate date with (-), y = Year, m = mouth, d = date Example: y-m-d or d-m-y or m-d-y
+  *
+  * @return		string	
+  */
 	
-function change_date_format($date, $separator = " / ", $format = "dd-mm-yyyy")
+function change_date_format($date, $old_separator = "-", $old_format = 'y-m-d', $new_separator = " / ", $new_format = "d-m-y")
 {	
-	if($format == "dd-mm-yyyy")
-	{
-		$newDate = explode("-", $date);
-		$newDate = array_reverse($newDate);
-		$newDate = implode($separator, $newDate);
-	}
-	return $newDate;
+	// Get old format
+	list($_old_format_path1, $_old_format_path2, $_old_format_path3) = explode('-', $old_format);
+	
+	// Indendify date path
+	list($_date_path[$_old_format_path1], $_date_path[$_old_format_path2], $_date_path[$_old_format_path3]) = explode($old_separator, $date);
+	
+	// Get new format
+	list($_new_format_path1, $_new_format_path2, $_new_format_path3) = explode('-', $new_format);
+	
+	// Set new format
+	$_new_date = $_date_path[$_new_format_path1].$new_separator.$_date_path[$_new_format_path2].$new_separator.$_date_path[$_new_format_path3];
+	
+	return $_new_date;
 }
 
 
