@@ -110,6 +110,24 @@ a.link_none:active 	{ text-decoration: none; border: none; }
 thead th { background-image: url(../img/bg_th.png); }
 
 /*----------------------------------------------------------------------------------------------------*/
+/* Form */
+/*----------------------------------------------------------------------------------------------------*/
+
+.search_left 
+{
+	background: url(../img/icon_seacrh_left.png) left no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 3px 3px 20px;
+}
+
+.search_right
+{
+	background: url(../img/icon_seacrh_right.png) right no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 20px 3px 3px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
 /* Button */
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -172,8 +190,6 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	-webkit-box-shadow: 0px 0px 1px #89C3FF;
 }
 
-
-
 /*----------------------------------------------------------------------------------------------------*/
 /* Pagination */
 /*----------------------------------------------------------------------------------------------------*/
@@ -206,8 +222,8 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 {
 	background: #D0D0D0;
 	border: 1px #999 solid;
-	padding: 20px;
-	margin: 20px 0px;
+	padding: 10px 20px 20px 20px;
+	margin: 10px 0px;
 	
 	/* CSS3 */
 	border-radius: 5px;
@@ -218,6 +234,27 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	-moz-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
 	-webkit-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
 	
+}
+
+.dashboard h2 
+{ 
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.dashboard h2 span
+{
+	font-size: 14px;
+	font-weight: normal;	
+}
+
+.dashboard hr 
+{ 
+
+	border-color: #999;
+	border-style: dashed;
+	margin: 5px 0px; 
 }
 
 .gadget
@@ -235,6 +272,17 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	box-shadow: 0px 0px 3px #999;
 	-moz-box-shadow: 0px 0px 3px #999;
 	-webkit-box-shadow: 0px 0px 3px #999;
+}
+
+.gadget h3
+{
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.gadget table tr td
+{
+	padding: 5px;	
 }
 
 /*----------------------------------------------------------------------------------------------------*/
