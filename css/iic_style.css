@@ -33,24 +33,21 @@
 .w120	{ width: 120px }
 .w150	{ width: 150px }
 
-#center_box
-{
+.center_box
+{ 
 	position:absolute;
-	top:50%;
-	width:100%;
-	margin:auto;
+	top:25%;
+    right:25%;
+    left:25%;
+	bottom: 25%
 }
 
-#center_box > div
+.center_box > div
 {
-	display: table;
 	margin: auto;
-	min-height: 400px;
 	min-width: 200px;
-	max-width: 960px;
+	max-width: 300px;
 	padding: 25px;
-	position: relative;
-	top: -200px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -70,7 +67,7 @@
 .green		{ color: #060; }
 .blue		{ color: #09F; }
 .orange		{ color: #F90; }
-.liteGray	{ color: #999; }
+.lite_gray	{ color: #999; }
 
 .text_64 { font-size: 64px; }
 .text_48 { font-size: 48px; }
@@ -110,21 +107,42 @@ a.link_none:active 	{ text-decoration: none; border: none; }
 /* Table */
 /*----------------------------------------------------------------------------------------------------*/
 
-thead th { background-image: url(../images/bg_th.png); }
+thead th { background-image: url(../img/bg_th.png); }
+
+/*----------------------------------------------------------------------------------------------------*/
+/* Form */
+/*----------------------------------------------------------------------------------------------------*/
+
+.search_left 
+{
+	background: url(../img/icon_seacrh_left.png) left no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 3px 3px 20px;
+}
+
+.search_right
+{
+	background: url(../img/icon_seacrh_right.png) right no-repeat;
+	border: 1px solid #AAA;
+	padding: 3px 20px 3px 3px;
+}
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Button */
 /*----------------------------------------------------------------------------------------------------*/
 
+a[class^=button] { color: #4F4F4F }
+a:hover[class^=button] { color: #313131 }
+
 /*------------------------------------------------------------*/
 /* Default */
 /*------------------------------------------------------------*/
 
-input[type=submit], input[type=reset], button, a.button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, a.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
-	background: url(../images/bg_button.png) repeat-x;
+	background: url(../img/bg_button.png) repeat-x;
 	border: 1px solid #B8B8B8;
-	color: #333;
+	color: #4F4F4F;
 	display: inline-block;
 	font-size: 14px;
 	font-weight: bold;
@@ -146,12 +164,13 @@ input[type=submit], input[type=reset], button, a.button, input:not([type="checkb
 	-webkit-box-shadow: 0px 0px 1px #999;
 }
 
-input[type=submit], input[type=reset], button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]) { height: 30px; }
+input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button { height: 30px; }
 
-input[type=submit]:hover, button:hover, a.button:hover, input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button:hover.iic_button, button.iic_button:hover, a.iic_button:hover, input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: center;
 	border-color: #71B7FF;
+	color: #313131
 	
 	/* CSS3 */
 	box-shadow: 0px 0px 1px #99CBFF;
@@ -159,7 +178,7 @@ input[type=submit]:hover, button:hover, a.button:hover, input:hover:not([type="c
 	-webkit-box-shadow: 0px 0px 1px #99CBFF;
 }
 
-input[type=submit]:active, button:active, a.button:active, input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:active, input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: bottom;
 	border-color: #63B0FF;
@@ -171,138 +190,26 @@ input[type=submit]:active, button:active, a.button:active, input:active:not([typ
 	-webkit-box-shadow: 0px 0px 1px #89C3FF;
 }
 
-/*------------------------------------------------------------*/
-/* Back Office Main Menu */
-/*------------------------------------------------------------*/
-.menu_main
+/*----------------------------------------------------------------------------------------------------*/
+/* Pagination */
+/*----------------------------------------------------------------------------------------------------*/
+
+.pagination
 {
-	background: url(../../image/bg_mainMenu.png) repeat-x;
-	position: relative;
-	height: 40px;
-	
-	/* CSS3 */
-	
-	box-shadow: 0px 1px 5px #333;
-	-moz-box-shadow: 0px 1px 5px #333;
-	-webkit-box-shadow: 0px 1px 5px #333;
+	text-align: right;
 }
 
-.menu_main > li
-{
-	float: left;	
-	list-style: none;
-	position: relative;
+.pagination a 
+{ 
+	border: 1px solid #DDD;
+	padding: 5px;
+	margin: 0px 3px;
 }
 
-.menu_main > li.float_r
-{
-	float: right;	
-	margin-right: 30px;
-}
-
-.menu_main > li a
-{
-	/*background: url(../image/bg_mainMenu_button.png) top repeat-x;*/
-	border: 1px solid #BFBFBF;
-	color: #555;
-	display: block;
-	line-height: 26px;
-	padding: 0px 10px;
-	margin: 6px 0px 0px 0px;
-	min-width: 80px;
-	text-align: center;
-	text-shadow: 0px 0px 2px #FFF;
-	
-	/* CSS3 */
-	
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	
-	box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
-	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
-	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 5px #EEE inset;
-}
-
-.menu_main > li a:hover, .menu_main > li.active a
-{
-	background: #999;
-	border: 1px solid #949494;
-	color: #FFF;
-	font-weight: bold;
-	margin: 6px 0px 0px 0px;
-	text-shadow: 0px 0px 3px #333;
-	
-	/* CSS3 */
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	
-	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-}
-
-.menu_main > li > ul
-{
-	background: #999;
-	top: 41px;
- 	list-style: none;
-	opacity: 0.9;
-	padding: 5px 0px 10px 0px;
-	position: absolute;
-	
-	/* CSS3 */
-	
-	box-shadow: 0px 1px 5px #333;
-	-moz-box-shadow: 0px 1px 5px #333;
-	-webkit-box-shadow: 0px 1px 5px #333;
-}
-
-.menu_main > li > ul > li
-{
-	margin: 5px 10px;
-	padding: 1px;
-	min-width: 80px;
-}
-
-.menu_main > li > ul > li > a, .menu_main > li.active > ul > li > a
-{
-	background: #999;
-	border: 1px solid #949494;
-	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
-	color: #FFF;
-	font-weight: normal;
-	padding: 0px 10px;
-	text-align: left;
-	text-shadow: 0px 0px 3px #333;
-	
-	/* CSS3 */
-	
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	
-	box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
-	-moz-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
-	-webkit-box-shadow: 0px 0px 1px #CCC, 0px 0px 2px #BBB inset;
-}
-
-.menu_main > li > ul > li > a:hover
-{
-	background: #AFAFAF;
-	border: 1px solid #949494;
-	font-weight: bold;
-	
-	/* CSS3 */
-	
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	
-	box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-moz-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
-	-webkit-box-shadow: 0px 0px 1px #999, 0px 0px 2px #666 inset;
+.pagination a:hover
+{ 
+	border: 1px solid #CCC;
+	background-color: #EFEFEF;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -315,8 +222,8 @@ input[type=submit]:active, button:active, a.button:active, input:active:not([typ
 {
 	background: #D0D0D0;
 	border: 1px #999 solid;
-	padding: 20px;
-	margin: 20px 0px;
+	padding: 10px 20px 20px 20px;
+	margin: 10px 0px;
 	
 	/* CSS3 */
 	border-radius: 5px;
@@ -329,9 +236,30 @@ input[type=submit]:active, button:active, a.button:active, input:active:not([typ
 	
 }
 
+.dashboard h2 
+{ 
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.dashboard h2 span
+{
+	font-size: 14px;
+	font-weight: normal;	
+}
+
+.dashboard hr 
+{ 
+
+	border-color: #999;
+	border-style: dashed;
+	margin: 5px 0px; 
+}
+
 .gadget
 {
-	background: #F3F3F3 url(../../image/bg_gadget.png) top repeat-x;
+	background: #F3F3F3 url(../img/bg_gadget.png) top repeat-x;
 	border: 1px solid #CCC;
 	padding: 2px;
 	
@@ -344,6 +272,17 @@ input[type=submit]:active, button:active, a.button:active, input:active:not([typ
 	box-shadow: 0px 0px 3px #999;
 	-moz-box-shadow: 0px 0px 3px #999;
 	-webkit-box-shadow: 0px 0px 3px #999;
+}
+
+.gadget h3
+{
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.gadget table tr td
+{
+	padding: 5px;	
 }
 
 /*----------------------------------------------------------------------------------------------------*/
