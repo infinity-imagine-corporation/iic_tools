@@ -155,23 +155,25 @@ function change_date_format($date, $old_separator = "-", $old_format = 'y-m-d', 
 
 // ------------------------------------------------------------------------
 
-function remove_comma($number) 
+function remove_comma($number, $decimal = 0) 
 {
-	list($int, $dot) = explode (".", $number);
+	list($_int, $_dot) = explode ('.', $number);
 	
-	if($dot == "") 
+	if(($_dot == '' && $decimal > 0) || ($_dot != '')) 
 	{
-		while(strlen ($dot) < 2) 
+		while(strlen ($_dot) < 2) 
 		{
-			$dot = "0" . "$dot";
+			$_dot = '0'.$_dot;
 		}
+		$_dot = '.'.$_dot;
 	}
 	
-	$int = explode (",", $int);
-	$int = implode ($int);
-	$new_number = $int.$dot;
+	$_int = explode (',', $_int);
+	$_int = implode ($_int);
 	
-	return $new_number;
+	$_new_number = $_int.$_dot;
+	
+	return $_new_number;
 }
 
 // ------------------------------------------------------------------------

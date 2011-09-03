@@ -5,6 +5,7 @@
 <title><?php echo $title ?></title>
 <link rel="stylesheet" type="text/css" href="../iic_tools/css/iic_layout.css" />
 <link rel="stylesheet" type="text/css" href="../iic_tools/css/iic_style.css" />
+<?php if($css != '') { echo '<link rel="stylesheet" type="text/css" href="'.$css.'" />';} ?>
 <style type="text/css">
 li { list-style: circle; }
 hr { border-top-style: dashed; }
