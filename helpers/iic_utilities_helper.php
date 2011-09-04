@@ -227,5 +227,5 @@ function add_comma($number)
 // ------------------------------------------------------------------------
 
 
-/* End of file utilities_helper.php */
+/* End of file iic_utilities_helper.php */
 /* Location: ./iic_tools/helpers/iic_utilities_helper.php */
