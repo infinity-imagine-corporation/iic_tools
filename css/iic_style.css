@@ -198,20 +198,30 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 
 .pagination
 {
+	float: right;
+	margin: 8px 0px;
 	text-align: right;
 }
 
 .pagination a 
 { 
 	border: 1px solid #DDD;
-	padding: 5px;
-	margin: 0px 3px;
+	padding: 5px 10px;
+	margin: 0px 1px;
 }
 
 .pagination a:hover
 { 
 	border: 1px solid #CCC;
 	background-color: #EFEFEF;
+}
+
+.pagination strong
+{
+	border: 1px solid #CCC;
+	background-color: #EFEFEF;
+	padding: 5px 10px;
+	margin: 0px 3px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
