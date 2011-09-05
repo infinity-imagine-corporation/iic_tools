@@ -51,7 +51,7 @@ jQuery.validator.addMethod("th_lettersonly", function(value, element) {
 
 jQuery.validator.addMethod("letters_only", function(value, element) {
 	return this.optional(element) || /^[ก-๙a-z\s]+$/i.test(value);
-}, "โปรดกรอกเฉพาะตัวอักษร และ ห้ามมีช่องว่างระหว่างคำเกิน 1 ช่อง"); 
+}, "โปรดกรอกเฉพาะตัวอักษร"); 
 
 jQuery.validator.addMethod("nowhitespace", function(value, element) {
 	return this.optional(element) || /^\S+$/i.test(value);
