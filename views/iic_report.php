@@ -15,6 +15,7 @@ $button_text	= (isset($button_text )) ? $button_text : '';
 <style type="text/css">
 li { list-style: circle; }
 hr { border-top-style: dashed; }
+#button_ok { color: #555; }
 </style>
 </head>
 <body>
@@ -29,7 +30,7 @@ hr { border-top-style: dashed; }
 			if($url_target != '')
 			{
 				$button_text = ($button_text == '') ? 'OK' : $button_text;
-				echo '<a href="' . $url_target . '" class="iic_button">' . $button_text . '</a>';
+				echo '<a id="button_ok" class="iic_button" href="' . $url_target . '">' . $button_text . '</a>';
 			}
 			?>
 		</div>

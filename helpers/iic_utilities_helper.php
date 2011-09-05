@@ -178,9 +178,9 @@ function remove_comma($number, $decimal = 0)
 
 // ------------------------------------------------------------------------
 
-function add_comma($number) 
-{
-	list($int, $dot) = explode (".", $number);
+function add_comma($number = '') 
+{	
+	@list($int, $dot) = explode (".", $number);
 	
 	$int = explode(",", $int);
 	$int = implode($int);
@@ -199,7 +199,6 @@ function add_comma($number)
 	{
 		$sige = "";
 	}	
-	
 	
 	if(strlen($int) > 9) 
 	{
