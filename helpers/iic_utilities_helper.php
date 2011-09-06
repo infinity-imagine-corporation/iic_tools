@@ -60,7 +60,7 @@ function zero_fill($lenght, $data)
 {
 	while(strlen($data) < $lenght)
 	{
-		$data = '0' . $data;
+		$data = '0'.$data;
 	}
 	
 	return $data;
@@ -88,11 +88,11 @@ function get_numeric_selectbox($start, $end, $selected, $attribute)
 	
 	foreach($attribute as $key => $value)
 	{
-		$_attr .= ' ' . $key . '="' . $value . '"';
+		$_attr .= ' '.$key.'="'.$value.'"';
 	}
 	
 	// Generate selectbox
-	$_selectbox = '<select' . $_attr . '>';
+	$_selectbox = '<select'.$_attr.'>';
 
 	for($_loop = $start; $_loop <= $end; $_loop++)
 	{
@@ -100,7 +100,7 @@ function get_numeric_selectbox($start, $end, $selected, $attribute)
 		$_selected = ($selected == $_loop) ? 'selected = "selected"' : '';
 		
 		// Generate option value
-		$_selectbox .= '<option value="' . $_loop . '" ' . $_selected . '>' . $_loop . '</option>';
+		$_selectbox .= '<option value="'.$_loop.'" '.$_selected.'>'.$_loop.'</option>';
 	}
 	
 	$_selectbox .= '</select>';
@@ -112,9 +112,10 @@ function get_numeric_selectbox($start, $end, $selected, $attribute)
 	
 function change_date_time_format($date_time)
 {	
-	list($_date, $_time) = explode(" ", $date_time);
-	$_new_date = change_date_format($_date);
-	$_new_date_time = $_new_date . ' ' . substr($_time, 0, 5);
+	@list($_date, $_time) = explode(" ", $date_time);
+	
+	$_new_date		= change_date_format($_date);
+	$_new_date_time = $_new_date.' '.substr($_time, 0, 5);
 	
 	return $_new_date_time;
 }  
@@ -138,13 +139,13 @@ function change_date_time_format($date_time)
 function change_date_format($date, $old_separator = "-", $old_format = 'y-m-d', $new_separator = " / ", $new_format = "d-m-y")
 {	
 	// Get old format
-	list($_old_format_path1, $_old_format_path2, $_old_format_path3) = explode('-', $old_format);
+	@list($_old_format_path1, $_old_format_path2, $_old_format_path3) = explode('-', $old_format);
 	
 	// Indendify date path
-	list($_date_path[$_old_format_path1], $_date_path[$_old_format_path2], $_date_path[$_old_format_path3]) = explode($old_separator, $date);
+	@list($_date_path[$_old_format_path1], $_date_path[$_old_format_path2], $_date_path[$_old_format_path3]) = explode($old_separator, $date);
 	
 	// Get new format
-	list($_new_format_path1, $_new_format_path2, $_new_format_path3) = explode('-', $new_format);
+	@list($_new_format_path1, $_new_format_path2, $_new_format_path3) = explode('-', $new_format);
 	
 	// Set new format
 	$_new_date = $_date_path[$_new_format_path1].$new_separator.$_date_path[$_new_format_path2].$new_separator.$_date_path[$_new_format_path3];
@@ -157,7 +158,7 @@ function change_date_format($date, $old_separator = "-", $old_format = 'y-m-d', 
 
 function remove_comma($number, $decimal = 0) 
 {
-	list($_int, $_dot) = explode ('.', $number);
+	@list($_int, $_dot) = explode ('.', $number);
 	
 	if(($_dot == '' && $decimal > 0) || ($_dot != '')) 
 	{
@@ -204,16 +205,16 @@ function add_comma($number = '')
 	{
 		$new_number = substr_replace($int, ",", -3, 0 );
 		$new_number = substr_replace($new_number, ",", -7, 0 );
-		$new_number = substr_replace($new_number, ",", -12, 0 ) . "$dot";
+		$new_number = substr_replace($new_number, ",", -12, 0 )."$dot";
 	} 
 	else if(strlen($int) > 6) 
 	{
 		$new_number = substr_replace($int, ",", -3, 0 );
-		$new_number = substr_replace($new_number, ",", -7, 0 ) . "$dot";
+		$new_number = substr_replace($new_number, ",", -7, 0 )."$dot";
 	} 
 	else if(strlen($int) > 3) 
 	{
-		$new_number = substr_replace($int, ",", -3, 0 ) . "$dot";
+		$new_number = substr_replace($int, ",", -3, 0 )."$dot";
 	} 
 	else 
 	{

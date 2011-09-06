@@ -19,7 +19,7 @@ hr { border-top-style: dashed; }
 </style>
 </head>
 <body>
-<div class="center_box" <?php if($url_target != ''){ echo 'onkeypress="window.open(\'' . $url_target . '\',\'_self\')"';} ?>>
+<div class="center_box" <?php if($url_target != ''){ echo 'onkeypress="window.open(\''.$url_target.'\',\'_self\')"';} ?>>
 	<div class="gadget">
 		<h3><?php echo $title; ?></h3>
 		<hr />
@@ -30,7 +30,7 @@ hr { border-top-style: dashed; }
 			if($url_target != '')
 			{
 				$button_text = ($button_text == '') ? 'OK' : $button_text;
-				echo '<a id="button_ok" class="iic_button" href="' . $url_target . '">' . $button_text . '</a>';
+				echo '<a id="button_ok" class="iic_button" href="'.$url_target.'">'.$button_text.'</a>';
 			}
 			?>
 		</div>

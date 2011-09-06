@@ -9,10 +9,10 @@ function iic_query($sql)
 	{
 		// report
 		$title = 'Error in: iic_query()';
-		$message = '<h5>MySql Error: ' . mysql_errno() . '</h5>';
-		$message .= '<p class="red">' . mysql_error() . '</p>';
+		$message = '<h5>MySql Error: '.mysql_errno().'</h5>';
+		$message .= '<p class="red">'.mysql_error().'</p>';
 		$message .= '<h5>Your SQL syntax is:</h5>';
-		$message .= '<p><pre>' . $sql . '</pre></p>';
+		$message .= '<p><pre>'.$sql.'</pre></p>';
 		
 		require_once("iic_notification.php");
 		exit();
@@ -32,7 +32,7 @@ function check_query_error($query, $sql = NULL)
 		echo "<p>";
 		echo $sql;
 		echo "<hr />";
-		echo (mysql_errno() ? "Error no. " . mysql_errno() . " : " : "") . mysql_error();
+		echo (mysql_errno() ? "Error no. ".mysql_errno()." : " : "").mysql_error();
 		echo "</p>";
 		exit();
 	}

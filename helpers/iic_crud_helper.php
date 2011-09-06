@@ -18,6 +18,7 @@ function get_pagination($total_rows, $target, $current_page, $rows_per_page = 10
 {	
 	// Set total page
 	$_total_page = ceil($total_rows / $rows_per_page);
+	$_pagination = '';
 	
 	// Create previous button
 	if($current_page > 1 )
@@ -86,19 +87,22 @@ function get_pagination($total_rows, $target, $current_page, $rows_per_page = 10
 function calc_image_size($image_uri, $max_width = 300, $max_height = 300)
 {		
 	// Get original size
-	$_img_info	 = getimagesize($image_uri);
+	$_img_info	 = @getimagesize($image_uri);
 	$_img_width	 = $_img_info[0];
 	$_img_height = $_img_info[1];
+	
+	$_new_height	= '';
+	$_new_width		= '';
 	
 	// Set new width
 	if($_img_width > $max_width)
 	{
-		$_new_width	= $max_width;
+		$_new_width		= $max_width;
 		$_new_height	= floor($_new_width * $_img_height / $_img_width);
 	} 
 	else 
 	{
-		$_new_width = $img_info[0];
+		$_new_width = $_img_info[0];
 	}	
 	
 	// Set new height
@@ -158,14 +162,14 @@ function get_image_preview($image_uri, $max_width = 300, $max_height = 300)
   
 function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_height = 300)
 {
-	$_new_size	 = calc_image_size($image_uri, $max_width, $max_height);
-	$_new_width = $_new_size['width'];
-	$_new_height = $_new_size['height'];
+	$_new_size		= calc_image_size($image_uri, $max_width, $max_height);
+	$_new_width		= $_new_size['width'];
+	$_new_height	= $_new_size['height'];
 	
 	$_description = 'Click to view enlarge image';
 	
 	$_previewer = '<label><a href="'.$image_uri.'" target="_blank"><img src="'.$image_uri.'" width="'.$_new_width.'" height="'.$_new_height.'" alt="'.$_description.'" title="'.$_description.'"></a></label>';
-	$_previewer .= '<label class="normal">Original size: '.$_img_width.' x '.$_img_height.'</label>';
+	$_previewer .= '<label class="normal">Original size: '.$_new_width.' x '.$_new_height.'</label>';
 	$_previewer .= '<label><input type="checkbox" name="delete_'.$label.'" value="1"> Delete this image</label>';
 	
 	return $_previewer;
