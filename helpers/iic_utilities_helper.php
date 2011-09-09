@@ -104,24 +104,27 @@ function change_date_time_format($date_time)
 
 function get_timestamp($date_time)
 {
+	$_mktime['Y']	= date('Y');
+	$_mktime['m']	= date('m');
+	$_mktime['d']	= date('d');
+	$_mktime['H']	= 0;
+	$_mktime['i']	= 0;
+	$_mktime['s']	= 0;
+	
 	// Check type of $date_time (date_time, date, time)
 	if(strlen($date_time) == 19) // YYYY-MM-DD HH:MM:SS
 	{
 		list($_date, $_time) = explode(' ', $date_time);
 		
-		list($_mktime['Y'], $_mktime['m'], $_mktime['d']) = explode("-", $date);
+		list($_mktime['Y'], $_mktime['m'], $_mktime['d']) = explode("-", $_date);
 		
-		list($_mktime['H'], $_mktime['i'], $_mktime['s']) = split(':',$time);
+		list($_mktime['H'], $_mktime['i'], $_mktime['s']) = split(':',$_time);
 		
 		$_return = TRUE;
 	}
 	else if(strlen($date_time) == 10) // YYYY-MM-DD
 	{
-		list($_mktime['Y'], $_mktime['m'], $_mktime['d']) = explode("-", $date);
-		
-		$_mktime['H']	= 0;
-		$_mktime['i']	= 0;
-		$_mktime['s']	= 0;
+		list($_mktime['Y'], $_mktime['m'], $_mktime['d']) = explode("-", $date_time);
 		
 		$_return = TRUE;
 	}
@@ -129,13 +132,13 @@ function get_timestamp($date_time)
 	{
 		if(strlen($date_time) == 8) // HH:MM:SS
 		{
-			list($_mktime['H'], $_mktime['i'], $_mktime['s']) = split(':',$time);
+			list($_mktime['H'], $_mktime['i'], $_mktime['s']) = explode(':', $date_time);
 		
 			$_return = TRUE;
 		}
 		else if(strlen($date_time) == 5) // HH:MM
 		{
-			list($_mktime['H'] ,$_mktime['i']) = split(":",$time);
+			list($_mktime['H'] , $_mktime['i']) = explode(":", $date_time);
 		
 			$_mktime['s'] = 0;
 			
@@ -157,7 +160,7 @@ function get_timestamp($date_time)
 	}
 	else
 	{
-		return FALSE;
+		return 'Error';
 	}
 }
 
