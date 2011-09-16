@@ -217,7 +217,7 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	background-color: #EFEFEF;
 }
 
-.pagination strong
+.pagination strong, .pagination .current
 {
 	border: 1px solid #CCC;
 	background-color: #EFEFEF;

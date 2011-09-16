@@ -23,48 +23,52 @@ function get_pagination($total_rows, $target, $current_page, $rows_per_page = 10
 	// Create previous button
 	if($current_page > 1 )
 	{
-		$_pagination .= '<a href="'.$target.($current_page - 1).'" title="Previous">&nbsp;Prev&nbsp;</a>';
+		$_pagination .= '<a href="'.$target.($current_page - 1).'" title="Previous">&nbsp;Prev&nbsp;</a>&nbsp;';
 	}
 	
-	$loop = 1;
+	$_loop = 1;
 			
-	// Create pageing button
-	while($loop <= $_total_page) 
+	// Create page button
+	while($_loop <= $_total_page) 
 	{
-		if($loop <= 3 || $loop > ($_total_page - 3))
+		if($_loop <= 3 || $_loop > ($_total_page - 3))
 		{
-			$_pagination .= '<a href="'.$target.$loop.'" title="Page '.$loop.'" ';
-			if($loop == $current_page)
+			if($_loop == $current_page)
 			{
-				$_pagination .= "class='current'"; 
+				$_pagination .= '<strong>'.$_loop.'</strong>'; 
 			}
-			$_pagination .= ">&nbsp;".$loop."&nbsp;</a>";
+			else
+			{
+				$_pagination .= '<a href="'.$target.$_loop.'" title="Page '.$_loop.'">&nbsp;'.$_loop.'&nbsp;</a>';
+			}
 		}
-		else if($loop == 4 && $current_page >= 8)
+		else if($_loop == 4 && $current_page >= 8)
 		{
 			$_pagination .= " ... ";
 		}
-		else if($loop >= ($current_page - 3) && $loop <= ($current_page + 3) && $current_page > 3 && $current_page <= ($_total_page - 3))
+		else if($_loop >= ($current_page - 3) && $_loop <= ($current_page + 3) && $current_page > 3 && $current_page <= ($_total_page - 3))
 		{
-			$_pagination .= '<a href="'.$target.$loop.'" title="Page '.$loop.'" ';
-			if($loop == $current_page)
+			if($_loop == $current_page)
 			{
-				$_pagination .= "class='current'"; 
+				$_pagination .= '<strong>'.$_loop.'</strong>'; 
 			}
-			$_pagination .= ">&nbsp;".$loop."&nbsp;</a>";
+			else
+			{
+				$_pagination .= '<a href="'.$target.$_loop.'" title="Page '.$_loop.'">&nbsp;'.$_loop.'&nbsp;</a>';
+			}
 		}
-		else if($loop == ($_total_page - 3) && $current_page < ($_total_page - 3))
+		else if($_loop == ($_total_page - 3) && $current_page < ($_total_page - 3))
 		{
 			$_pagination .= " ... ";
 		}
 		
-		$loop++;
+		$_loop++;
 	}
 	
 	// Create next button
 	if($current_page != $_total_page && $_total_page != 0)
 	{
-		$_pagination .= '<a href="'.$target.($current_page + 1).'" title="Next">&nbsp;Next&nbsp;</a>';
+		$_pagination .= '&nbsp;<a href="'.$target.($current_page + 1).'" title="Next">&nbsp;Next&nbsp;</a>';
 	}
 	
 	return $_pagination;
