@@ -157,6 +157,7 @@ input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, 
 	text-shadow: 0px 1px 0px white;
 	
 	/* CSS3 */
+	
 	border-radius: 28px;
 	-moz-border-radius: 28px;
 	-webkit-border-radius: 28px;
@@ -175,6 +176,7 @@ input[type=submit].iic_button:hover.iic_button, button.iic_button:hover, a.iic_b
 	color: #313131
 	
 	/* CSS3 */
+	
 	box-shadow: 0px 0px 1px #99CBFF;
 	-moz-box-shadow: 0px 0px 1px #99CBFF;
 	-webkit-box-shadow: 0px 0px 1px #99CBFF;
@@ -186,7 +188,6 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	border-color: #63B0FF;
 	
 	/* CSS3 */
-	
 	box-shadow: 0px 0px 1px #89C3FF;
 	-moz-box-shadow: 0px 0px 1px #89C3FF;
 	-webkit-box-shadow: 0px 0px 1px #89C3FF;
@@ -238,6 +239,7 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	margin: 10px 0px;
 	
 	/* CSS3 */
+	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -245,7 +247,6 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
 	-moz-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
 	-webkit-box-shadow: 0px 0px 2px #999, 0px 0px 5px #999 inset;
-	
 }
 
 .dashboard h2 

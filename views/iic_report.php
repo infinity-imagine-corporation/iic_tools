@@ -15,7 +15,7 @@ $button_text	= (isset($button_text )) ? $button_text : '';
 <style type="text/css">
 li { list-style: circle; }
 hr { border-top-style: dashed; }
-#button_ok { color: #555; }
+#button_ok.iic_button, a.iic_button { color: #555; }
 </style>
 </head>
 <body>
