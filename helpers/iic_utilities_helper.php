@@ -275,47 +275,67 @@ function remove_comma($number, $decimal = 0)
 
 // ------------------------------------------------------------------------
 
-function add_comma($number = '') 
+function add_comma($number, $decimal = 0) 
 {	
-	@list($int, $dot) = explode (".", $number);
-	
-	$int = explode(",", $int);
-	$int = implode($int);
+	$_sign	= '';
+	$_int	= 0;
+	$_dot	= '';
 
-	if(strlen($dot) > 0) 
-	{		
-		$dot = '.'.$dot;
+	if(count(explode (".", $number)) > 1)
+	{
+		list($_int, $_dot) = explode (".", $number);
+	}
+	else
+	{
+		$_int = $number;
 	}
 	
-	if($int < 0) 
+	$_int = remove_comma($_int);
+	
+	if(($_dot == '' && $decimal > 0) || ($_dot != '')) 
 	{
-		$sige = "-";
-		$int = str_replace("-", "", $int);
+		while(strlen ($_dot) < 2) 
+		{
+			$_dot = '0'.$_dot;
+		}
+		
+		$_dot = '.'.$_dot;
+	}
+
+	if(strlen($_dot) > 0) 
+	{		
+		$_dot = '.'.$_dot;
+	}
+	
+	if($_int < 0) 
+	{
+		$_sign = '-';
+		$_int = str_replace('-', '', $_int);
 	} 
 	else 
 	{
-		$sige = "";
+		$_sign = '';
 	}	
 	
-	if(strlen($int) > 9) 
+	if(strlen($_int) > 9) 
 	{
-		$new_number = substr_replace($int, ",", -3, 0 );
-		$new_number = substr_replace($new_number, ",", -7, 0 );
-		$new_number = substr_replace($new_number, ",", -12, 0 )."$dot";
+		$_int = substr_replace($_int, ',', -3, 0 );
+		$_int = substr_replace($_int, ',', -7, 0 );
+		$_int = substr_replace($_int, ',', -12, 0 );
 	} 
-	else if(strlen($int) > 6) 
+	else if(strlen($_int) > 6) 
 	{
-		$new_number = substr_replace($int, ",", -3, 0 );
-		$new_number = substr_replace($new_number, ",", -7, 0 )."$dot";
+		$_int = substr_replace($_int, ',', -3, 0 );
+		$_int = substr_replace($_int, ',', -7, 0 );
 	} 
-	else if(strlen($int) > 3) 
+	else if(strlen($_int) > 3) 
 	{
-		$new_number = substr_replace($int, ",", -3, 0 )."$dot";
+		$_int = substr_replace($_int, ',', -3, 0 );
 	} 
 	
-	$new_number = $sige.$int.$dot;
+	$_new_number = $_sign.$_int.$_dot;
 	
-	return $new_number;
+	return $_new_number;
 }
 
 // ------------------------------------------------------------------------
