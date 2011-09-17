@@ -196,26 +196,11 @@ function get_time_timestamp($time)
 
 // ------------------------------------------------------------------------
 
-function compareDate($date1,$date2) 
+function time_diff($time1, $time2)
 {
-	$arrDate1 = explode("-",$date1);
-	$arrDate2 = explode("-",$date2);
-	$timStmp1 = mktime(0,0,0,$arrDate1[1],$arrDate1[2],$arrDate1[0]);
-	$timStmp2 = mktime(0,0,0,$arrDate2[1],$arrDate2[2],$arrDate2[0]);
-
-	if ($timStmp1 == $timStmp2) {
-		echo "\$date = \$date2";
-	} else if ($timStmp1 > $timStmp2) {
-		echo "\$date > \$date2";
-	} else if ($timStmp1 < $timStmp2) {
-		echo "\$date < \$date2";
-	}
-}
-
-function CompareTime($time1,$time2)
-{
-	$diffTime = getTimeStamp($time1) - getTimeStamp($time2);
-	return ceil(abs($diffTime/60));
+	$_time_diff = getTimeStamp($time1) - getTimeStamp($time2);
+	
+	return ceil(abs($_time_diff / 60));
 }
 
 // ------------------------------------------------------------------------
@@ -226,14 +211,14 @@ function CompareTime($time1,$time2)
   * Put 0 to $data 
   *
   * @access		public
-  * @param		integer	$lenght
+  * @param		integer	$length
   * @param		stirng	$data
   * @return		stirng	
   */
   
-function zero_fill($lenght, $data)
+function zero_fill($length, $data)
 {
-	while(strlen($data) < $lenght)
+	while(strlen($data) < $length)
 	{
 		$data = '0'.$data;
 	}
@@ -254,21 +239,32 @@ function zero_fill($lenght, $data)
   
 function remove_comma($number, $decimal = 0) 
 {
-	@list($_int, $_dot) = explode ('.', $number);
+	$_int		= 0;
+	$_decimal	= '';
 	
-	if(($_dot == '' && $decimal > 0) || ($_dot != '')) 
+	if(count(explode (".", $number)) > 1)
 	{
-		while(strlen ($_dot) < 2) 
+		list($_int, $_decimal) = explode (".", $number);
+	}
+	else
+	{
+		$_int = ($number == '') ? 0 : $number;
+	}
+	
+	if(($_decimal == '' && $decimal > 0) || ($_decimal != '')) 
+	{
+		while(strlen ($_decimal) < 2) 
 		{
-			$_dot = '0'.$_dot;
+			$_decimal = '0'.$_decimal;
 		}
-		$_dot = '.'.$_dot;
+		
+		$_decimal = '.'.$_decimal;
 	}
 	
 	$_int = explode (',', $_int);
 	$_int = implode ($_int);
 	
-	$_new_number = $_int.$_dot;
+	$_new_number = $_int.$_decimal;
 	
 	return $_new_number;
 }
@@ -277,34 +273,33 @@ function remove_comma($number, $decimal = 0)
 
 function add_comma($number, $decimal = 0) 
 {	
-	$_sign	= '';
-	$_int	= 0;
-	$_dot	= '';
+	$_sign		= '';
+	$_int		= 0;
+	$_decimal	= '';
 
 	if(count(explode (".", $number)) > 1)
 	{
-		list($_int, $_dot) = explode (".", $number);
+		list($_int, $_decimal) = explode (".", $number);
 	}
 	else
 	{
-		$_int = $number;
+		$_int = ($number == '') ? 0 : $number;
 	}
 	
 	$_int = remove_comma($_int);
 	
-	if(($_dot == '' && $decimal > 0) || ($_dot != '')) 
+	if(($_decimal == '' && $decimal > 0) || ($_decimal != '')) 
 	{
-		while(strlen ($_dot) < 2) 
+		while(strlen ($_decimal) < 2) 
 		{
-			$_dot = '0'.$_dot;
+			$_decimal = '0'.$_decimal;
 		}
 		
-		$_dot = '.'.$_dot;
+		$_decimal = '.'.$_decimal;
 	}
-
-	if(strlen($_dot) > 0) 
+	else if(strlen($_decimal) > 0) 
 	{		
-		$_dot = '.'.$_dot;
+		$_decimal = '.'.$_decimal;
 	}
 	
 	if($_int < 0) 
@@ -317,23 +312,15 @@ function add_comma($number, $decimal = 0)
 		$_sign = '';
 	}	
 	
-	if(strlen($_int) > 9) 
-	{
-		$_int = substr_replace($_int, ',', -3, 0 );
-		$_int = substr_replace($_int, ',', -7, 0 );
-		$_int = substr_replace($_int, ',', -12, 0 );
-	} 
-	else if(strlen($_int) > 6) 
-	{
-		$_int = substr_replace($_int, ',', -3, 0 );
-		$_int = substr_replace($_int, ',', -7, 0 );
-	} 
-	else if(strlen($_int) > 3) 
-	{
-		$_int = substr_replace($_int, ',', -3, 0 );
-	} 
+	$_total_loop = (strlen($_int) > 3) ? floor(strlen($_int) / 3) : 0;
 	
-	$_new_number = $_sign.$_int.$_dot;
+	for($_loop = $_total_loop; $_loop > 0; $_loop--)
+	{
+		$_length = (3 * $_loop) * -1;
+		$_int = substr_replace($_int, ',', $_length, 0 );
+	}
+	
+	$_new_number = $_sign.$_int.$_decimal;
 	
 	return $_new_number;
 }
