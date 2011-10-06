@@ -179,6 +179,8 @@ function get_crud_image_preview($image_uri, $label, $max_width = 300, $max_heigh
 	return $_previewer;
 }
 
+// ------------------------------------------------------------------------
+
 
 /* End of file iic_crud_helper.php */
 /* Location: ./iic_tools/helpes/iic_crud_helper.php */

@@ -64,9 +64,11 @@
 .black		{ color: #000; }
 .white		{ color: #FFF; }
 .red 		{ color: #F00; }
-.green		{ color: #060; }
+.green		{ color: #090; }
 .blue		{ color: #09F; }
 .orange		{ color: #F90; }
+.pink		{ color: #F69; }
+.gray		{ color: #666; }
 .lite_gray	{ color: #999; }
 
 .text_64 { font-size: 64px; }

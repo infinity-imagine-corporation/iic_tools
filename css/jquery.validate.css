@@ -1,14 +1,15 @@
+
 i.error
 {
 	color: #F00;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: normal;
-	margin-left: 10px;	
+	margin-left: 10px;
 }
 
 input.error
 {
 	background-color: #FEE;
-	border: 1px solid #F00;	
+	border: 1px solid #F00;
 }
