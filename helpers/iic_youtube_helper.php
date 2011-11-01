@@ -54,8 +54,8 @@ function get_embed($url, $set_ratio=NULL, $value=NULL)
 		$_height = 385;
 	}
 	
-/*	echo $_width.'<br />' .$_height;
-	exit();*/
+	//echo $_width.'<br />' .$_height;
+	//exit();
 	
 	$_id = get_id($url);
 	$_embed = '<object width="'.$_width.'" height="'.$_height.'">
@@ -67,8 +67,8 @@ function get_embed($url, $set_ratio=NULL, $value=NULL)
 	return $_embed;
 }
 
-/* End of file MY_array_helper.php */
-/* Location: ./application/helpers/MY_array_helper.php */
+/* End of file iic_youtube_helper.php */
+/* Location: ./application/helpers/iic_youtube_helper.php */
 
 
 
