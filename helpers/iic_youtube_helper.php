@@ -69,6 +69,3 @@ function get_embed($url, $set_ratio=NULL, $value=NULL)
 
 /* End of file iic_youtube_helper.php */
 /* Location: ./application/helpers/iic_youtube_helper.php */
-
-
-
