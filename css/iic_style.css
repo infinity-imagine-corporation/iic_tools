@@ -30,8 +30,10 @@
 .right		{ text-align: right; }
 .justify	{ text-align: justify; }
 
-.w120	{ width: 120px }
-.w150	{ width: 150px }
+.w50	{ max-width:50px; min-width: 50px; width: 50px; }
+.w64	{ min-width: 64px; width: 64px; }
+.w120	{ min-width: 120px; width: 120px; }
+.w150	{ min-width: 150px; width: 150px; }
 
 .center_box
 { 
