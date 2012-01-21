@@ -1,4 +1,3 @@
-
 i.error
 {
 	color: #F00;
@@ -8,7 +7,7 @@ i.error
 	margin-left: 10px;
 }
 
-input.error
+input.error, select.error + select
 {
 	background-color: #FEE;
 	border: 1px solid #F00;

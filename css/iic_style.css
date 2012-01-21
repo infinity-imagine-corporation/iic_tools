@@ -133,6 +133,13 @@ thead th { background-image: url(../img/bg_th.png); }
 
 label b { color: #F00; }
 
+label + span 
+{ 
+	display: block;
+	font-size: 12px; 
+	margin: -5px 0px 10px 0px;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /* Button */
 /*----------------------------------------------------------------------------------------------------*/
@@ -177,7 +184,7 @@ input[type=submit].iic_button:hover.iic_button, button.iic_button:hover, a.iic_b
 {
 	background-position: center;
 	border-color: #71B7FF;
-	color: #313131
+	color: #313131;
 	
 	/* CSS3 */
 	
