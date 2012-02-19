@@ -1,4 +1,5 @@
-#IIC Tools
+IIC Tools
+=========
 
 Minimal tools for develop web faster when your project does not use any framework.
 
