@@ -12,13 +12,16 @@
 		
 	Chang Log
 		
-		2010-08-31	ver 0.5.0	first code
+		2010-08-31	ver 0.0.5	first code
 */
 /*----------------------------------------------------------------------------------------------------*/
 /* Reset */
 /*----------------------------------------------------------------------------------------------------*/
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, 
+acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td
 {
 	margin:0;
 	padding:0;
@@ -29,7 +32,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background:transparent
 } 
 
-ol, ul { list-style:none }
+/*ol, ul { list-style:none }*/
 
 /*blockquote, q { quotes:none }*/
 
@@ -152,7 +155,8 @@ form input[type=text], form input[type=password], form textarea, form select
 	font-size: 14px;
 }
 
-form input[type=submit], form input[type=reset], form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+form input[type=submit], form input[type=reset], 
+form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
 {
 	margin: 25px auto 0px auto;
 }
