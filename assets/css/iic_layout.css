@@ -88,16 +88,16 @@ del { text-decoration:line-through }
 	/*overflow: hidden;*/
 	clear: both;
 	margin: 0 auto;
-	padding: 0px 10px;
 	width: 960px;
 }
 
 .row .row 
 {
-	display: inline-block;
-	margin: 0 -20px;
+	margin: 0 -10px;
 	width: auto;
 }
+
+.grid_overlay { background: #FFF url(../img/16_col.gif) repeat-y center; }
 
 /*----------------------------------------------------------------------------------------------------*/
 /* Typography */
