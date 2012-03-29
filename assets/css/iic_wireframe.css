@@ -8,11 +8,9 @@ body > div.row
 article, header, nav, aside, section, footer
 {
 	display: block;
-	
-	/*outline: 1px solid #666;
-	 margin-right: -2px;*/
+	/*outline: 1px solid #CCC;*/
 
-	background: hsla(200, 30%, 30%, .4);
+	background: hsla(200, 30%, 30%, 0.1);
 }
 
 aside, section
@@ -22,6 +20,7 @@ aside, section
 
 article
 {
+	border-radius: 3px;
 	min-height: 50px;
 }
 
