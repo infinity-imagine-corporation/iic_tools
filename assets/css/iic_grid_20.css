@@ -7,31 +7,36 @@
 .grid_7 { width:34%; }
 .grid_8 { width:39%; }
 .grid_9 { width:44%; }
-.grid_10 { width:490px; }
-.grid_11 { width:540px; }
-.grid_12 { width:590px; }
-.grid_13 { width:640px; }
-.grid_14 { width:690px; }
-.grid_15 { width:740px; }
-.grid_16 { width:790px; }
-.grid_17 { width:840px; }
-.grid_18 { width:890px; }
-.grid_19 { width:940px; }
+.grid_10 { width:49%; }
+.grid_11 { width:54%; }
+.grid_12 { width:59%; }
+.grid_13 { width:64%; }
+.grid_14 { width:69%; }
+.grid_15 { width:74%; }
+.grid_16 { width:79%; }
+.grid_17 { width:84%; }
+.grid_18 { width:89%; }
+.grid_19 { width:94%; }
 .grid_20 { width:99%; }
 
-.column {
+.column 
+{
+	display: inline;
+	float: left;
 	margin: 0 0.5%;
 	overflow: hidden;
-	float: left;
-	display: inline;
 }
-.row {
-	width: 100%;
-	margin: 0 auto;
+
+.row 
+{
+	margin: 0;
 	overflow: hidden;
-}
-.row .row {
-	/*margin: 0 -0.5%;*/
 	width: 100%;
+}
+
+.row .row 
+{
 	display: inline-block;
+	margin: 0 -0.5%;
+	width: 100%;
 }

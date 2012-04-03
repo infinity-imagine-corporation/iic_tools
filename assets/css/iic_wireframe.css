@@ -8,8 +8,6 @@ body > div.row
 article, header, nav, aside, section, footer
 {
 	display: block;
-	/*outline: 1px solid #CCC;*/
-
 	background: hsla(200, 30%, 30%, 0.1);
 }
 
