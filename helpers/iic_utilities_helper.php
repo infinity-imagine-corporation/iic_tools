@@ -1,4 +1,4 @@
-<?php 
+<?php
 // ------------------------------------------------------------------------
 // Array 
 // ------------------------------------------------------------------------
@@ -45,6 +45,157 @@ function array_to_comma($arr)
 function comma_to_array($text)
 {
 	return explode(',', $text);
+}
+
+// --------------------------------------------------------------------
+
+/**
+ * Generate XML data from array
+ *
+ * @access	public
+ * @param	array	
+ * @param	array	Any preferences
+ * @return	string
+ */
+function xml_from_array($array, $params = array())
+{
+	// Set our default values
+	foreach (array('root' => 'root', 'element' => 'element', 'newline' => "\n", 'tab' => "\t") as $key => $val)
+	{
+		if ( ! isset($params[$key]))
+		{
+			$params[$key] = $val;
+		}
+	}
+
+	// Create variables for convenience
+	extract($params);
+
+	// Generate the result
+	$xml = "<{$root}>".$newline;
+	foreach ($array as $row)
+	{
+		$xml .= $tab."<{$element}>".$newline;
+
+		foreach ($row as $key => $val)
+		{
+			$val = (is_object($val)) ? $val->format('Y-m-d') : $val;
+			$xml .= $tab.$tab."<{$key}>".xml_convert_element_content($val)."</{$key}>".$newline;
+		}
+		
+		$xml .= $tab."</{$element}>".$newline;
+	}
+	$xml .= "</$root>".$newline;
+
+	return $xml;
+}
+
+// --------------------------------------------------------------------
+
+function xml_convert_element_content($content)
+{
+	$tab =  "\t";
+	$newline = "\n";
+	$element = 'element';
+	$xml = '';
+	
+	if(is_array($content))
+	{
+		foreach ($content as $row)
+		{
+			$xml .= $newline.$tab.$tab.$tab."<{$element}>".$newline;
+	
+			foreach ($row as $key => $val)
+			{
+				$xml .= $tab.$tab.$tab.$tab.$tab."<{$key}>".xml_convert_element_content($val)."</{$key}>".$newline;
+			}
+			$xml .= $tab.$tab.$tab."</{$element}>".$newline.$tab.$tab;
+		}
+	}
+	else 
+	{
+		$xml .= xml_convert($content);
+	}
+	
+	return $xml;
+}
+
+// ------------------------------------------------------------------------
+
+/**
+ * Convert Reserved XML characters to Entities
+ *
+ * @access	public
+ * @param	string
+ * @return	string
+ */
+function xml_convert($str, $protect_all = FALSE)
+{
+	$temp = '__TEMP_AMPERSANDS__';
+
+	// Replace entities to temporary markers so that
+	// ampersands won't get messed up
+	$str = preg_replace("/&#(\d+);/", "$temp\\1;", $str);
+
+	if ($protect_all === TRUE)
+	{
+		$str = preg_replace("/&(\w+);/",  "$temp\\1;", $str);
+	}
+
+	$str = str_replace(array("&","<",">","\"", "'", "-"),
+						array("&amp;", "&lt;", "&gt;", "&quot;", "&apos;", "&#45;"),
+						$str);
+
+	// Decode the temp markers back to entities
+	$str = preg_replace("/$temp(\d+);/","&#\\1;",$str);
+
+	if ($protect_all === TRUE)
+	{
+		$str = preg_replace("/$temp(\w+);/","&\\1;", $str);
+	}
+
+	return $str;
+}
+
+// ------------------------------------------------------------------------
+
+/**
+ * Generate CSV from array
+ *
+ * @access	public
+ * @param	array	
+ * @param	string	The delimiter - comma by default
+ * @param	string	The newline character - \n by default
+ * @param	string	The enclosure - double quote by default
+ * @return	string
+ */
+function csv_from_array($array, $delim = ",", $newline = "\n", $enclosure = '"')
+{
+	$out = '';
+	
+	$first_value = reset($array);
+
+	// First generate the headings from the table column names
+	foreach ($first_value as $key => $val)
+	{
+		$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $key).$enclosure.$delim;
+	}
+
+	$out = rtrim($out);
+	$out .= $newline;
+
+	// Next blast through the result array and build out the rows
+	foreach ($array as $row)
+	{
+		foreach ($row as $item)
+		{
+			$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
+		}
+		$out = rtrim($out);
+		$out .= $newline;
+	}
+
+	return $out;
 }
 
 // ------------------------------------------------------------------------
@@ -242,9 +393,9 @@ function remove_comma($number, $decimal = 0)
 	$_int		= 0;
 	$_decimal	= '';
 	
-	if(count(explode (".", $number)) > 1)
+	if(count(explode(".", $number)) > 1)
 	{
-		list($_int, $_decimal) = explode (".", $number);
+		list($_int, $_decimal) = explode(".", $number);
 	}
 	else
 	{
@@ -253,15 +404,15 @@ function remove_comma($number, $decimal = 0)
 	
 	if(($_decimal == '' && $decimal > 0) || ($_decimal != '')) 
 	{
-		while(strlen ($_decimal) < 2) 
+		while(strlen($_decimal) < 2) 
 		{
-			$_decimal = '0'.$_decimal;
+			$_decimal = $_decimal.'0';
 		}
 		
 		$_decimal = '.'.$_decimal;
 	}
 	
-	$_int = explode (',', $_int);
+	$_int = explode(',', $_int);
 	$_int = implode ($_int);
 	
 	$_new_number = $_int.$_decimal;
@@ -277,9 +428,9 @@ function add_comma($number, $decimal = 0)
 	$_int		= 0;
 	$_decimal	= '';
 
-	if(count(explode (".", $number)) > 1)
+	if(count(explode(".", $number)) > 1)
 	{
-		list($_int, $_decimal) = explode (".", $number);
+		list($_int, $_decimal) = explode(".", $number);
 	}
 	else
 	{
@@ -290,7 +441,7 @@ function add_comma($number, $decimal = 0)
 	
 	if(($_decimal == '' && $decimal > 0) || ($_decimal != '')) 
 	{
-		while(strlen ($_decimal) < 2) 
+		while(strlen($_decimal) < 2) 
 		{
 			$_decimal = '0'.$_decimal;
 		}
