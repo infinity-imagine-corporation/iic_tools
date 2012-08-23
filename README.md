@@ -8,6 +8,7 @@ More detail is coming...
 Change log
 ----------
 
+- 0.2.3		Added iic_utilities_helper.js
 - 0.2.2		Move all third party script into third_party folder.
 - 0.2.1		Update file path and move css image and js into assets folder.
 - 0.1.0		Import and integrate from old stuff of usefull code.
