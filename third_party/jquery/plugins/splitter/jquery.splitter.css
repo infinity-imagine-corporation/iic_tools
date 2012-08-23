@@ -1,0 +1,13 @@
+.hsplitbar
+{	
+	height: 10px;
+	border-top: 1px solid #AAA;
+	background: url(grip_dotted_h.png) no-repeat center bottom;
+	background-color: #DDD;
+	/*box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);*/
+}
+
+.hsplitbar.active, .hsplitbar:hover
+{
+	background-color: #DDD;
+}
