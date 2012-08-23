@@ -108,6 +108,79 @@ a.link_none:hover 	{ text-decoration: none; border: none; }
 a.link_none:active 	{ text-decoration: none; border: none; }
 
 /*----------------------------------------------------------------------------------------------------*/
+/* Navigation */
+/*----------------------------------------------------------------------------------------------------*/
+
+.nav_h
+{
+	background: #AAA;
+	border: 1px solid #999;
+	height: 50px;
+	line-height: 50px;
+	margin: 0px auto;
+	padding: 0 0 0 20px;
+}
+
+.nav_h ul
+{
+	margin: 0px;
+	list-style: none;
+}
+
+.nav_h ul li 
+{ 
+	float: left; 
+	margin-left: 0px; 
+	position: relative;
+}
+
+.nav_h ul li a
+{
+	display: block;
+	border: none;
+	padding: 0px 0px 0px 12px;
+	margin-right: 20px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.nav_h a:hover { color: #FC0; }
+
+/* Menu Level 2 */
+
+
+.nav_h ul li ul
+{ 
+	background-color: #333;
+	display: none;
+	position: absolute;
+	z-index: 1000;
+}
+
+.nav_h ul li:hover ul
+{ 
+	display: block;
+}
+
+.nav_h ul li ul > li
+{ 
+	min-width: 100px;
+	white-space: nowrap;
+}
+
+.nav_h ul li ul > li > a
+{
+	border: none;
+	color: #FFF;
+	display: block;
+	background: none;
+	line-height: 40px;
+	margin-right: 20px;
+	padding: 0px 0px 0px 12px;
+	text-decoration: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
 /* Table */
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -211,27 +284,33 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 .pagination
 {
 	float: right;
-	margin: 8px 0px;
+	margin: 8px 0px 25px 0px;
 	text-align: right;
 }
 
 .pagination a 
 { 
 	border: 1px solid #DDD;
+	border-radius: 3px;
+	color: #666;
 	padding: 5px 10px;
 	margin: 0px 1px;
 }
 
 .pagination a:hover
 { 
-	border: 1px solid #CCC;
 	background-color: #EFEFEF;
+	border: 1px solid #CCC;
+	color: #333;
+	font-weight: bold;
 }
 
 .pagination strong, .pagination .current
 {
-	border: 1px solid #CCC;
 	background-color: #EFEFEF;
+	border: 1px solid #AAA;
+	border-radius: 3px;
+	color: #333;
 	padding: 5px 10px;
 	margin: 0px 3px;
 }
