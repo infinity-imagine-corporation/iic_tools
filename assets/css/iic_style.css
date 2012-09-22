@@ -224,7 +224,11 @@ a:hover[class^=button] { color: #313131 }
 /* Default */
 /*------------------------------------------------------------*/
 
-input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, a.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
+input[type=submit].iic_button, 
+input[type=reset].iic_button, 
+button.iic_button, 
+a.iic_button, 
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background: url(../img/bg_button.png) repeat-x;
 	border: 1px solid #B8B8B8;
@@ -241,7 +245,6 @@ input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, 
 	text-shadow: 0px 1px 0px white;
 	
 	/* CSS3 */
-	
 	border-radius: 28px;
 	-moz-border-radius: 28px;
 	-webkit-border-radius: 28px;
@@ -251,22 +254,30 @@ input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, 
 	-webkit-box-shadow: 0px 0px 1px #999;
 }
 
-input[type=submit].iic_button, input[type=reset].iic_button, button.iic_button, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button { height: 30px; }
+input[type=submit].iic_button, 
+input[type=reset].iic_button, 
+button.iic_button, 
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button 
+{ height: 30px; }
 
-input[type=submit].iic_button:hover.iic_button, button.iic_button:hover, a.iic_button:hover, input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
+input[type=submit].iic_button:hover.iic_button, 
+button.iic_button:hover, a.iic_button:hover, 
+input:hover:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: center;
 	border-color: #71B7FF;
 	color: #313131;
 	
 	/* CSS3 */
-	
 	box-shadow: 0px 0px 1px #99CBFF;
 	-moz-box-shadow: 0px 0px 1px #99CBFF;
 	-webkit-box-shadow: 0px 0px 1px #99CBFF;
 }
 
-input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:active, input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
+input[type=submit].iic_button:active, 
+button.iic_button:active, 
+a.iic_button:active, 
+input:active:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"]).iic_button
 {
 	background-position: bottom;
 	border-color: #63B0FF;
@@ -329,7 +340,6 @@ input[type=submit].iic_button:active, button.iic_button:active, a.iic_button:act
 	margin: 10px 0px;
 	
 	/* CSS3 */
-	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;

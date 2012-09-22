@@ -146,13 +146,18 @@ label
 	/*letter-spacing: 1px;*/
 }
 
-form input[type=text], form input[type=password], form textarea, form select
+form input[type=text], 
+form input[type=password], 
+form textarea, 
+form select
 {
 	padding: 5px;
 	font-size: 14px;
 }
 
-form input[type=submit], form input[type=reset], form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
+form input[type=submit], 
+form input[type=reset], 
+form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="text"]):not([type="password"])
 {
 	margin: 25px auto 0px auto;
 }
