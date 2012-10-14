@@ -10,11 +10,18 @@
   * @param		array	$arr
   */
   
-function print_array($arr)
+function print_array($arr, $is_return = FALSE)
 {
-	echo '<pre>';
-	print_r($arr);
-	echo '</pre>';
+	$_return = '<pre>'.print_r($arr, TRUE).'</pre>';
+
+	if($is_return)
+	{
+		return $_return;
+	}
+	else
+	{
+		echo $_return;
+	}
 }
 
 // ------------------------------------------------------------------------
